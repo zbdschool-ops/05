@@ -145,11 +145,11 @@ text-align: center;
 overflow: hidden;
 }
 .hero-illustration img {
-    max-width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 16px;
+max-width: 100%;
+height: auto;
+max-height: 500px;
+object-fit: contain;
+border-radius: 16px;
 }
 .hero-illustration-title {
 color: var(--primary);
@@ -767,7 +767,7 @@ font-size: 13px;
 cursor: pointer;
 transition: all 0.2s;
 }
-.matching-item:hover {
+.matching-item:hover:not(.correct):not(.incorrect) {
 border-color: var(--accent);
 background: #eff6ff;
 }
@@ -778,10 +778,13 @@ background: #fef3c7;
 .matching-item.correct {
 border-color: var(--success);
 background: #dcfce7;
+color: #166534;
+font-weight: 600;
 }
 .matching-item.incorrect {
 border-color: var(--danger);
 background: #fee2e2;
+color: #991b1b;
 }
 .chat-message {
 background: white;
@@ -985,15 +988,13 @@ font-size: 13px;
 💡 <strong>Порада:</strong> Фейки поширюються швидко, а правда потребує уважності. Сумніваєшся — не поширюй!
 </div>
 </main>
-
-<!-- КРОК 1: СТАРТОВЕ ЗАВДАННЯ -->
+<!-- КРОК 1 -->
 <main class="container hidden" id="step1Page">
 <div class="step-header">
 <h2 class="step-title"> Крок 1. Стартове завдання</h2>
 </div>
 <section class="card">
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
-<!-- ЛІВА КОЛОНКА - ІЛЮСТРАЦІЯ -->
 <div class="image-container">
 <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -1003,7 +1004,6 @@ font-size: 13px;
 </linearGradient>
 </defs>
 <rect width="500" height="400" fill="url(#bgGrad)" rx="16"/>
-<!-- Phone 1 - Urgent message -->
 <rect x="50" y="80" width="180" height="240" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
 <circle cx="75" cy="110" r="8" fill="#dc2626"/>
 <text x="90" y="115" font-size="14" font-weight="700" fill="#dc2626">Невідомий контакт</text>
@@ -1012,7 +1012,6 @@ font-size: 13px;
 <text x="70" y="175" font-size="10" fill="#dc2626">У місті небезпечно!</text>
 <text x="70" y="190" font-size="10" fill="#dc2626">Передайте далі!</text>
 <text x="65" y="305" font-size="10" fill="#991b1b">щойно</text>
-<!-- Phone 2 - Official message -->
 <rect x="270" y="80" width="180" height="240" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
 <circle cx="295" cy="110" r="8" fill="#16a34a"/>
 <text x="310" y="115" font-size="14" font-weight="700" fill="#16a34a">Офіційне джерело</text>
@@ -1021,19 +1020,15 @@ font-size: 13px;
 <text x="290" y="175" font-size="10" fill="#166534">небезпеку не</text>
 <text x="290" y="190" font-size="10" fill="#166534">підтверджена.</text>
 <text x="285" y="305" font-size="10" fill="#166534">щойно</text>
-<!-- VS between -->
 <circle cx="250" cy="200" r="20" fill="#f59e0b"/>
 <text x="250" y="206" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">VS</text>
 </svg>
 </div>
-
-<!-- ПРАВА КОЛОНКА - ТЕКСТОВЕ ЗАВДАННЯ -->
 <div>
 <div class="theory-compact" style="background: linear-gradient(135deg, var(--theory-orange) 0%, #fed7aa 100%); border-color: #fdba74;">
 <h4>📱 У чаті з'явились два повідомлення</h4>
 <p style="margin-top: 12px;"><strong>Прочитай їх уважно та поміркуй:</strong> яке з них викликає сильніші емоції? Чому?</p>
 </div>
-
 <div style="margin-top: 20px;">
 <p class="mb-16"><strong>Яке повідомлення викликає сильніші емоції?</strong></p>
 <div class="task-options" id="s1Task1Options">
@@ -1054,7 +1049,6 @@ font-size: 13px;
 <div id="s1Task1Feedback" class="feedback" style="display:none;"></div>
 </div>
 </div>
-
 <div class="navigation">
 <button class="btn btn-secondary" onclick="goToMainPage()">← До змісту</button>
 <button class="btn btn-primary" onclick="checkS1Task1()">✓ Перевірити</button>
@@ -1062,7 +1056,7 @@ font-size: 13px;
 </div>
 </section>
 </main>
-<!-- КРОК 2: МЕТОДИ ІНФОРМАЦІЙНОГО ВПЛИВУ -->
+<!-- КРОК 2 -->
 <main class="container hidden" id="step2Page">
 <div class="step-header">
 <div class="step-header-top">
@@ -1214,9 +1208,9 @@ font-size: 13px;
 <section class="card hidden" id="s2Task3">
 <h2>📝 Завдання 3. Визнач тип інформації</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Інструкція:</strong> Обери поняття, а потім — відповідний приклад.
+<strong>📌 Інструкція:</strong> Обери поняття зліва, потім — відповідний приклад справа.
 </div>
-<div class="matching-grid">
+<div class="matching-grid" id="matchingGridS2T3">
 <div class="matching-column">
 <h4>📖 Поняття</h4>
 <div class="matching-item" data-concept="1" onclick="selectMatchingConcept(this)">🤥 Фейк</div>
@@ -1275,8 +1269,7 @@ font-size: 13px;
 </div>
 </section>
 </main>
-
-<!-- КРОК 3: ЯК ПОШИРЮЄТЬСЯ ДЕЗІНФОРМАЦІЯ -->
+<!-- КРОК 3 -->
 <main class="container hidden" id="step3Page">
 <div class="step-header">
 <div class="step-header-top">
@@ -1331,7 +1324,7 @@ font-size: 13px;
 <div class="feedback feedback-warning mb-24">
 <strong>📌 Інструкція:</strong> Обери засіб поширення дезінформації зліва, потім — відповідний опис справа.
 </div>
-<div class="matching-grid">
+<div class="matching-grid" id="matchingGridS3T1">
 <div class="matching-column">
 <h4>🤖 Засоби</h4>
 <div class="matching-item" data-concept="1" onclick="selectMatchingConcept(this)">🤖 Ботоферми</div>
@@ -1497,8 +1490,7 @@ font-size: 13px;
 </div>
 </section>
 </main>
-
-<!-- КРОК 4: ІНФОРМАЦІЯ ПІД ЧАС ВІЙНИ -->
+<!-- КРОК 4 -->
 <main class="container hidden" id="step4Page">
 <div class="step-header">
 <div class="step-header-top">
@@ -1551,7 +1543,7 @@ font-size: 13px;
 <div class="feedback feedback-warning mb-24">
 <strong>📌 Інструкція:</strong> З'єднай питання безпеки з його змістом.
 </div>
-<div class="matching-grid">
+<div class="matching-grid" id="matchingGridS4T1">
 <div class="matching-column">
 <h4>❓ Питання</h4>
 <div class="matching-item" data-concept="1" onclick="selectMatchingConcept(this)">🛡️ Крок 1.Чи це безпечно?</div>
@@ -1716,8 +1708,7 @@ font-size: 13px;
 </div>
 </section>
 </main>
-
-<!-- КРОК 5: ПІДСУМКОВА ДІЯЛЬНІСТЬ -->
+<!-- КРОК 5 -->
 <main class="container hidden" id="step5Page">
 <div class="step-header">
 <div class="step-header-top">
@@ -1908,8 +1899,7 @@ font-size: 13px;
 </div>
 </section>
 </main>
-
-<!-- КРОК 6: САМООЦІНЮВАННЯ -->
+<!-- КРОК 6 -->
 <main class="container hidden" id="step6Page">
 <div class="step6-header">
 <h2>🎉 Вітаємо! Ти завершив(ла) тренажер!</h2>
@@ -1998,7 +1988,6 @@ font-size: 13px;
 <button class="btn btn-primary" onclick="goToMainPage()">🏠 На головну</button>
 </div>
 </main>
-
 <!-- МОДАЛКА ПРОГРЕСУ -->
 <div class="modal-overlay" id="progressModal" role="dialog" aria-modal="true" aria-labelledby="progressTitle">
 <div class="modal">
@@ -2461,6 +2450,8 @@ saveProgress();
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showS2(id) {
+// ВАЖЛИВО: очищаємо стан matching при переході між завданнями
+resetMatchingState();
 ['s2Theory', 's2Task1', 's2Task2', 's2Task3', 's2Task4'].forEach(s => {
 const el = document.getElementById(s);
 if (el) el.classList.add('hidden');
@@ -2470,15 +2461,18 @@ if (target) target.classList.remove('hidden');
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showS3(id) {
+resetMatchingState();
 ['s3Theory', 's3Task1', 's3Task2', 's3Task3', 's3Task4'].forEach(s => {
 const el = document.getElementById(s);
 if (el) el.classList.add('hidden');
 });
 const target = document.getElementById(id);
 if (target) target.classList.remove('hidden');
+if (id === 's3Task2') initS3DragAndDrop();
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showS4(id) {
+resetMatchingState();
 ['s4Theory', 's4Task1', 's4Task2', 's4Task3', 's4Task4'].forEach(s => {
 const el = document.getElementById(s);
 if (el) el.classList.add('hidden');
@@ -2510,6 +2504,82 @@ opt.setAttribute('aria-checked', 'false');
 element.classList.add('selected');
 element.setAttribute('aria-checked', 'true');
 }
+// ============ MATCHING: УНІВЕРСАЛЬНА ЛОГІКА ============
+let selectedConcept = null;
+let matchingPairs = {};
+
+// Очищення стану matching при переході між завданнями
+function resetMatchingState() {
+    matchingPairs = {};
+    selectedConcept = null;
+    // Очищаємо стани тільки у видимих matching-grid
+    document.querySelectorAll('.matching-grid').forEach(grid => {
+        grid.querySelectorAll('.matching-item').forEach(item => {
+            item.classList.remove('selected', 'correct', 'incorrect');
+        });
+    });
+    // Ховаємо feedback
+    ['s2Task3Feedback', 's3Task1Feedback', 's4Task1Feedback'].forEach(id => {
+        const fb = document.getElementById(id);
+        if (fb) fb.style.display = 'none';
+    });
+}
+
+// Вибір поняття зліва — працюємо тільки в межах поточного matching-grid
+function selectMatchingConcept(item) {
+    if (item.classList.contains('correct') || item.classList.contains('incorrect')) return;
+    
+    const grid = item.closest('.matching-grid');
+    if (!grid) return;
+    
+    // Знімаємо виділення з усіх понять у ЦЬОМУ grid
+    grid.querySelectorAll('.matching-column:first-child .matching-item').forEach(i => {
+        if (!i.classList.contains('correct') && !i.classList.contains('incorrect')) {
+            i.classList.remove('selected');
+        }
+    });
+    
+    item.classList.add('selected');
+    selectedConcept = item.dataset.concept;
+    // Зберігаємо посилання на поточний grid для наступного кроку
+    selectedConceptGrid = grid;
+}
+
+let selectedConceptGrid = null;
+
+// Вибір прикладу справа — з'єднуємо з поняттям у тому ж grid
+function selectMatchingCondition(item) {
+    if (!selectedConcept) {
+        showToast('💡 Спочатку обери поняття зліва');
+        return;
+    }
+    if (item.classList.contains('correct') || item.classList.contains('incorrect')) return;
+    
+    const grid = item.closest('.matching-grid');
+    if (!grid) return;
+    
+    const condition = item.dataset.condition;
+    
+    // Якщо ця пара вже була з'єднана — видаляємо старе з'єднання
+    if (matchingPairs[selectedConcept]) {
+        const oldCondition = matchingPairs[selectedConcept];
+        const oldConditionItem = grid.querySelector(`.matching-column:last-child .matching-item[data-condition="${oldCondition}"]`);
+        if (oldConditionItem && !oldConditionItem.classList.contains('correct') && !oldConditionItem.classList.contains('incorrect')) {
+            oldConditionItem.classList.remove('selected');
+        }
+    }
+    
+    matchingPairs[selectedConcept] = condition;
+    item.classList.add('selected');
+    
+    const conceptItem = grid.querySelector(`.matching-column:first-child .matching-item[data-concept="${selectedConcept}"]`);
+    if (conceptItem) conceptItem.classList.remove('selected');
+    
+    selectedConcept = null;
+    selectedConceptGrid = null;
+    showToast(`✅ З'єднано!`);
+}
+
 // ============ КРОК 1 ============
 function checkS1Task1() {
 const selected = document.querySelector('#s1Task1Options .option.selected');
@@ -2618,69 +2688,69 @@ opt.classList.remove('selected', 'correct', 'incorrect', 'disabled');
 document.getElementById('s2Task2Feedback').style.display = 'none';
 showToast('🔄 Спробуй ще раз');
 }
-let selectedConcept = null;
-let matchingPairs = {};
-function selectMatchingConcept(item) {
-if (item.classList.contains('correct') || item.classList.contains('incorrect')) return;
-document.querySelectorAll('.matching-column:first-child .matching-item').forEach(i => i.classList.remove('selected'));
-item.classList.add('selected');
-selectedConcept = item.dataset.concept;
-}
-function selectMatchingCondition(item) {
-if (!selectedConcept) {
-showToast('💡 Спочатку обери поняття зліва');
-return;
-}
-if (item.classList.contains('correct') || item.classList.contains('incorrect')) return;
-const condition = item.dataset.condition;
-matchingPairs[selectedConcept] = condition;
-item.classList.add('selected');
-document.querySelector(`.matching-column:first-child .matching-item[data-concept="${selectedConcept}"]`).classList.remove('selected');
-selectedConcept = null;
-showToast(`✅ З'єднано!`);
-}
+
+// ПЕРЕВІРКА MATCHING З ПІДСВІЧУВАННЯМ (Крок 2, Завдання 3)
 function checkS2Task3() {
-const feedback = document.getElementById('s2Task3Feedback');
-feedback.style.display = 'block';
-if (Object.keys(matchingPairs).length < 4) {
-feedback.className = 'feedback feedback-warning';
-feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з 4 пар. З'єднай усі!`;
-return;
+    const grid = document.getElementById('matchingGridS2T3');
+    const feedback = document.getElementById('s2Task3Feedback');
+    feedback.style.display = 'block';
+    
+    const totalPairs = 4;
+    if (Object.keys(matchingPairs).length < totalPairs) {
+        feedback.className = 'feedback feedback-warning';
+        feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з ${totalPairs} пар. З'єднай усі!`;
+        return;
+    }
+    
+    let correctCount = 0;
+    
+    // Очищаємо попередні стани
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('correct', 'incorrect');
+    });
+    
+    // Перевіряємо кожну пару
+    for (let concept in matchingPairs) {
+        const selectedCondition = matchingPairs[concept];
+        const conceptItem = grid.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
+        const conditionItem = grid.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
+        
+        if (concept === selectedCondition) {
+            // Правильна пара — ЗЕЛЕНИМ
+            if (conceptItem) conceptItem.classList.add('correct');
+            if (conditionItem) conditionItem.classList.add('correct');
+            correctCount++;
+        } else {
+            // Неправильна пара — ЧЕРВОНИМ
+            if (conceptItem) conceptItem.classList.add('incorrect');
+            if (conditionItem) conditionItem.classList.add('incorrect');
+        }
+    }
+    
+    if (correctCount === totalPairs) {
+        feedback.className = 'feedback feedback-success';
+        feedback.innerHTML = `<strong>✅ Чудово!</strong> Всі ${totalPairs} пар з'єднано правильно!`;
+        addCorrect('step2_task3');
+    } else {
+        feedback.className = 'feedback feedback-error';
+        feedback.innerHTML = `<strong>❌ Правильно: ${correctCount} з ${totalPairs}.</strong> Неправильні пари виділено червоним. Спробуй ще раз.`;
+    }
 }
-let allCorrect = true;
-for (let concept in matchingPairs) {
-const correctCondition = concept;
-const selectedCondition = matchingPairs[concept];
-const conceptItem = document.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
-const conditionItem = document.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
-if (concept === selectedCondition) {
-conceptItem.classList.add('correct');
-conditionItem.classList.add('correct');
-} else {
-conceptItem.classList.add('incorrect');
-conditionItem.classList.add('incorrect');
-allCorrect = false;
-}
-}
-if (allCorrect) {
-feedback.className = 'feedback feedback-success';
-feedback.innerHTML = '<strong>✅ Чудово!</strong> Ти правильно визначив(ла) типи інформації.';
-addCorrect('step2_task3');
-} else {
-feedback.className = 'feedback feedback-error';
-feedback.innerHTML = '<strong>❌ Є помилки.</strong> Правильні пари виділено зеленим.';
-}
-}
+
 function retryS2Task3() {
 if (progressTracker.answered.has('step2_task3')) {
 showToast('✅ Це завдання вже зараховано!');
 return;
 }
-document.querySelectorAll('.matching-item').forEach(item => {
-item.classList.remove('selected', 'correct', 'incorrect');
-});
+const grid = document.getElementById('matchingGridS2T3');
+if (grid) {
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('selected', 'correct', 'incorrect');
+    });
+}
 matchingPairs = {};
 selectedConcept = null;
+selectedConceptGrid = null;
 document.getElementById('s2Task3Feedback').style.display = 'none';
 showToast('🔄 Спробуй з\'єднати ще раз');
 }
@@ -2756,47 +2826,65 @@ draggedItem.remove();
 draggedItem = null;
 }
 }
+
+// ПЕРЕВІРКА MATCHING З ПІДСВІЧУВАННЯМ (Крок 3, Завдання 1)
 function checkS3Task1() {
-const feedback = document.getElementById('s3Task1Feedback');
-feedback.style.display = 'block';
-if (Object.keys(matchingPairs).length < 4) {
-feedback.className = 'feedback feedback-warning';
-feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з 4 пар. З'єднай усі!`;
-return;
+    const grid = document.getElementById('matchingGridS3T1');
+    const feedback = document.getElementById('s3Task1Feedback');
+    feedback.style.display = 'block';
+    
+    const totalPairs = 4;
+    if (Object.keys(matchingPairs).length < totalPairs) {
+        feedback.className = 'feedback feedback-warning';
+        feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з ${totalPairs} пар. З'єднай усі!`;
+        return;
+    }
+    
+    let correctCount = 0;
+    
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('correct', 'incorrect');
+    });
+    
+    for (let concept in matchingPairs) {
+        const selectedCondition = matchingPairs[concept];
+        const conceptItem = grid.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
+        const conditionItem = grid.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
+        
+        if (concept === selectedCondition) {
+            if (conceptItem) conceptItem.classList.add('correct');
+            if (conditionItem) conditionItem.classList.add('correct');
+            correctCount++;
+        } else {
+            if (conceptItem) conceptItem.classList.add('incorrect');
+            if (conditionItem) conditionItem.classList.add('incorrect');
+        }
+    }
+    
+    if (correctCount === totalPairs) {
+        feedback.className = 'feedback feedback-success';
+        feedback.innerHTML = `<strong>✅ Чудово!</strong> Всі ${totalPairs} пар з'єднано правильно!`;
+        addCorrect('step3_task1');
+    } else {
+        feedback.className = 'feedback feedback-error';
+        feedback.innerHTML = `<strong>❌ Правильно: ${correctCount} з ${totalPairs}.</strong> Неправильні пари виділено червоним. Спробуй ще раз.`;
+    }
 }
-let allCorrect = true;
-for (let concept in matchingPairs) {
-const selectedCondition = matchingPairs[concept];
-const conceptItem = document.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
-const conditionItem = document.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
-if (concept === selectedCondition) {
-conceptItem.classList.add('correct');
-conditionItem.classList.add('correct');
-} else {
-conceptItem.classList.add('incorrect');
-conditionItem.classList.add('incorrect');
-allCorrect = false;
-}
-}
-if (allCorrect) {
-feedback.className = 'feedback feedback-success';
-feedback.innerHTML = '<strong>✅ Чудово!</strong> Ти знаєш засоби поширення дезінформації.';
-addCorrect('step3_task1');
-} else {
-feedback.className = 'feedback feedback-error';
-feedback.innerHTML = '<strong>❌ Є помилки.</strong> Правильні пари виділено зеленим.';
-}
-}
+
 function retryS3Task1() {
 if (progressTracker.answered.has('step3_task1')) {
 showToast('✅ Це завдання вже зараховано!');
 return;
 }
-document.querySelectorAll('.matching-item').forEach(item => {
-item.classList.remove('selected', 'correct', 'incorrect');
-});
+const grid = document.getElementById('matchingGridS3T1');
+if (grid) {
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('selected', 'correct', 'incorrect');
+    });
+}
 matchingPairs = {};
 selectedConcept = null;
+selectedConceptGrid = null;
 document.getElementById('s3Task1Feedback').style.display = 'none';
 showToast('🔄 Спробуй ще раз');
 }
@@ -2956,47 +3044,65 @@ document.getElementById('s3Task4Feedback').style.display = 'none';
 showToast('🔄 Спробуй ще раз');
 }
 // ============ КРОК 4 ============
+
+// ПЕРЕВІРКА MATCHING З ПІДСВІЧУВАННЯМ (Крок 4, Завдання 1)
 function checkS4Task1() {
-const feedback = document.getElementById('s4Task1Feedback');
-feedback.style.display = 'block';
-if (Object.keys(matchingPairs).length < 3) {
-feedback.className = 'feedback feedback-warning';
-feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з 3 пар. З'єднай усі!`;
-return;
+    const grid = document.getElementById('matchingGridS4T1');
+    const feedback = document.getElementById('s4Task1Feedback');
+    feedback.style.display = 'block';
+    
+    const totalPairs = 3;
+    if (Object.keys(matchingPairs).length < totalPairs) {
+        feedback.className = 'feedback feedback-warning';
+        feedback.innerHTML = `💡 З'єднано ${Object.keys(matchingPairs).length} з ${totalPairs} пар. З'єднай усі!`;
+        return;
+    }
+    
+    let correctCount = 0;
+    
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('correct', 'incorrect');
+    });
+    
+    for (let concept in matchingPairs) {
+        const selectedCondition = matchingPairs[concept];
+        const conceptItem = grid.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
+        const conditionItem = grid.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
+        
+        if (concept === selectedCondition) {
+            if (conceptItem) conceptItem.classList.add('correct');
+            if (conditionItem) conditionItem.classList.add('correct');
+            correctCount++;
+        } else {
+            if (conceptItem) conceptItem.classList.add('incorrect');
+            if (conditionItem) conditionItem.classList.add('incorrect');
+        }
+    }
+    
+    if (correctCount === totalPairs) {
+        feedback.className = 'feedback feedback-success';
+        feedback.innerHTML = `<strong>✅ Чудово!</strong> Всі ${totalPairs} пар з'єднано правильно!`;
+        addCorrect('step4_task1');
+    } else {
+        feedback.className = 'feedback feedback-error';
+        feedback.innerHTML = `<strong>❌ Правильно: ${correctCount} з ${totalPairs}.</strong> Неправильні пари виділено червоним. Спробуй ще раз.`;
+    }
 }
-let allCorrect = true;
-for (let concept in matchingPairs) {
-const selectedCondition = matchingPairs[concept];
-const conceptItem = document.querySelector(`.matching-column:first-child .matching-item[data-concept="${concept}"]`);
-const conditionItem = document.querySelector(`.matching-column:last-child .matching-item[data-condition="${selectedCondition}"]`);
-if (concept === selectedCondition) {
-conceptItem.classList.add('correct');
-conditionItem.classList.add('correct');
-} else {
-conceptItem.classList.add('incorrect');
-conditionItem.classList.add('incorrect');
-allCorrect = false;
-}
-}
-if (allCorrect) {
-feedback.className = 'feedback feedback-success';
-feedback.innerHTML = '<strong>✅ Чудово!</strong> Ти знаєш три кроки безпеки.';
-addCorrect('step4_task1');
-} else {
-feedback.className = 'feedback feedback-error';
-feedback.innerHTML = '<strong>❌ Є помилки.</strong> Правильні пари виділено зеленим.';
-}
-}
+
 function retryS4Task1() {
 if (progressTracker.answered.has('step4_task1')) {
 showToast('✅ Це завдання вже зараховано!');
 return;
 }
-document.querySelectorAll('.matching-item').forEach(item => {
-item.classList.remove('selected', 'correct', 'incorrect');
-});
+const grid = document.getElementById('matchingGridS4T1');
+if (grid) {
+    grid.querySelectorAll('.matching-item').forEach(item => {
+        item.classList.remove('selected', 'correct', 'incorrect');
+    });
+}
 matchingPairs = {};
 selectedConcept = null;
+selectedConceptGrid = null;
 document.getElementById('s4Task1Feedback').style.display = 'none';
 showToast('🔄 Спробуй ще раз');
 }
@@ -3346,6 +3452,9 @@ stepsCompleted[i] = false;
 }
 state.currentStep = 0;
 state.selfRatings = [0, 0, 0];
+matchingPairs = {};
+selectedConcept = null;
+selectedConceptGrid = null;
 window.location.reload();
 }
 }
