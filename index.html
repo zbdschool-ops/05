@@ -1114,7 +1114,7 @@ font-size: 13px;
 <div class="text urgent-text">!! ТЕРМІНОВО!! Місто атаковане! Уже захоплюють об'єкти! Влада все приховує! ПОШИРЮЙТЕ НЕГАЙНО!!!</div>
 <div class="time">14:27</div>
 </div>
-<p class="mb-16"><strong>Які ознаки маніпуляції ти помітив(ла)?</strong> <em>(обери всі правильні)</em></p>
+<p class="mb-16"><strong>Які ознаки маніпуляції ти помітив(ла)?</strong></p>
 <div class="task-options" id="s2Task1Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1124,15 +1124,16 @@ font-size: 13px;
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">⚡ Закликає діяти швидко («Негайно!»)</div></div>
 </div>
-<div class="option" data-correct="true" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text"><div class="option-label">🤥 Містить неперевірену інформацію</div></div>
-</div>
 <div class="option" data-correct="false" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text">
 <div class="option-label">✅ Походить з офіційного джерела</div>
 <div class="option-explanation">❌ Навпаки — джерело анонімне, не перевірене.</div>
+</div>
+</div>
+<div class="option" data-correct="true" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text"><div class="option-label">🤥 Містить неперевірену інформацію</div></div>
 </div>
 </div>
 </div>
@@ -1175,11 +1176,18 @@ font-size: 13px;
 <span>👍 5,8 тис.</span><span>💬 2,1 тис.</span><span>🔁 4,3 тис.</span>
 </div>
 </div>
-<p class="mb-16"><strong>Чому друге повідомлення поширюється швидше?</strong> <em>(обери всі правильні)</em></p>
+<p class="mb-16"><strong>Чому друге повідомлення поширюється швидше?</strong></p>
 <div class="task-options" id="s2Task2Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">😱 Викликає сильні емоції — люди діляться ним імпульсивно</div></div>
+</div>
+<div class="option" data-correct="false" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text">
+<div class="option-label">✅ Воно більш достовірне</div>
+<div class="option-explanation">❌ Навпаки — воно неперевірене і маніпулятивне.</div>
+</div>
 </div>
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1188,12 +1196,6 @@ font-size: 13px;
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">🚫 Обходить критичне мислення через паніку</div></div>
-</div>
-<div class="option" data-correct="false" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text">
-<div class="option-label">✅ Воно більш достовірне</div>
-<div class="option-explanation">❌ Навпаки — воно неперевірене і маніпулятивне.</div>
 </div>
 </div>
 </div>
@@ -1208,7 +1210,7 @@ font-size: 13px;
 <section class="card hidden" id="s2Task3">
 <h2>📝 Завдання 3. Визнач тип інформації</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Інструкція:</strong> Обери поняття зліва, потім — відповідний приклад справа.
+<strong>📌 Інструкція:</strong> Обери поняття, а потім знайди відповідний приклад.
 </div>
 <div class="matching-grid" id="matchingGridS2T3">
 <div class="matching-column">
@@ -1216,7 +1218,7 @@ font-size: 13px;
 <div class="matching-item" data-concept="1" onclick="selectMatchingConcept(this)">🤥 Фейк</div>
 <div class="matching-item" data-concept="2" onclick="selectMatchingConcept(this)">🌓 Напівправда</div>
 <div class="matching-item" data-concept="3" onclick="selectMatchingConcept(this)">😱 Емоційна маніпуляція</div>
-<div class="matching-item" data-concept="4" onclick="selectMatchingConcept(this)">📝 Неперевірене повідомлення</div>
+<div class="matching-item" data-concept="4" onclick="selectMatchingConcept(this)">📝 Інформація без підтвердження з надійного джерела. </div>
 </div>
 <div class="matching-column">
 <h4>🎯 Приклади</h4>
@@ -1237,7 +1239,7 @@ font-size: 13px;
 <section class="card hidden" id="s2Task4">
 <h2>📝 Завдання 4. Чому важливо не поспішати?</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Питання:</strong> Чому важливо не поспішати поширювати інформацію? <em>(обери всі правильні)</em>
+<strong>📌 Питання:</strong> Чому важливо не поспішати поширювати інформацію?
 </div>
 <div class="task-options" id="s2Task4Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
@@ -1248,15 +1250,16 @@ font-size: 13px;
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">🔍 Щоб перевірити джерело інформації</div></div>
 </div>
-<div class="option" data-correct="true" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text"><div class="option-label">🛡️ Щоб не стати інструментом маніпуляторів</div></div>
-</div>
 <div class="option" data-correct="false" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text">
 <div class="option-label">⏰ Щоб інформація «охолола» і стала нецікавою</div>
 <div class="option-explanation">❌ Справа не в «охолодженні», а в перевірці достовірності.</div>
+</div>
+</div>
+<div class="option" data-correct="true" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text"><div class="option-label">🛡️ Щоб не стати інструментом маніпуляторів</div></div>
 </div>
 </div>
 </div>
@@ -1322,7 +1325,7 @@ font-size: 13px;
 <section class="card hidden" id="s3Task1">
 <h2>📝 Завдання 1. З'єднай засіб з описом</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Інструкція:</strong> Обери засіб поширення дезінформації зліва, потім — відповідний опис справа.
+<strong>📌 Інструкція:</strong> Обери засіб поширення дезінформації, а потім — опис, який йому відповідає.
 </div>
 <div class="matching-grid" id="matchingGridS3T1">
 <div class="matching-column">
@@ -1351,7 +1354,7 @@ font-size: 13px;
 <section class="card hidden" id="s3Task2">
 <h2>📝 Завдання 2. Впорядкуй етапи поширення</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Інструкція:</strong> Перетягни картки у правильному порядку (1️⃣-2️⃣-3️⃣-4️⃣-5️⃣).
+<strong>📌 Інструкція:</strong> Упорядкуй етапи поширення неперевіреної інформації. (1️⃣-2️⃣-3️⃣-4️⃣-5️⃣).
 </div>
 <div class="drag-container">
 <div class="drag-source">
@@ -1423,15 +1426,11 @@ font-size: 13px;
 <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1783612481/02-05_cbubgf.png" alt="Повідомлення">
 </div>
 <div>
-<p class="mb-16"><strong>Що сприяло швидкому поширенню повідомлення?</strong> <em>(обери всі правильні)</em></p>
+<p class="mb-16"><strong>Що сприяло швидкому поширенню повідомлення?</strong></p>
 <div class="task-options" id="s3Task3Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">😱 Викликало страх і паніку</div></div>
-</div>
-<div class="option" data-correct="true" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text"><div class="option-label">⚡ Закликало до негайної дії («Терміново!»)</div></div>
 </div>
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1442,6 +1441,11 @@ font-size: 13px;
 <div class="option-text">
 <div class="option-label">✅ Походило з офіційного джерела</div>
 <div class="option-explanation">❌ Навпаки — джерело не було офіційним.</div>
+</div>
+</div>
+<div class="option" data-correct="true" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text"><div class="option-label">⚡ Закликало до негайної дії («Терміново!»)</div></div>
 </div>
 </div>
 </div>
@@ -1458,12 +1462,19 @@ font-size: 13px;
 <section class="card hidden" id="s3Task4">
 <h2>📝 Завдання 4. Як зупинити дезінформацію?</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Питання:</strong> На якому етапі поширення дезінформації її можна зупинити найефективніше? <em>(обери всі правильні)</em>
+<strong>📌 Питання:</strong> На яких етапах поширення дезінформації її можна зупинити найефективніше?
 </div>
 <div class="task-options" id="s3Task4Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">🛑 На етапі «Вкид» — не поширювати неперевірену інформацію</div></div>
+</div>
+<div class="option" data-correct="false" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text">
+<div class="option-label">🤷 Нічого не можна зробити — інформація все одно пошириться</div>
+<div class="option-explanation">❌ Кожен може зупинити ланцюжок, не поділившись фейком.</div>
+</div>
 </div>
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1472,12 +1483,6 @@ font-size: 13px;
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">📢 Повідомляти про фейки офіційним джерелам</div></div>
-</div>
-<div class="option" data-correct="false" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text">
-<div class="option-label">🤷 Нічого не можна зробити — інформація все одно пошириться</div>
-<div class="option-explanation">❌ Кожен може зупинити ланцюжок, не поділившись фейком.</div>
 </div>
 </div>
 </div>
@@ -1648,7 +1653,7 @@ font-size: 13px;
 </div>
 </div>
 </div>
-<p class="mt-24 mb-16"><strong>Які можуть бути наслідки такого поширення?</strong> <em>(обери всі)</em></p>
+<p class="mt-24 mb-16"><strong>Які можуть бути наслідки такого поширення?</strong></p>
 <div class="task-options" id="s4Task3Options2">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1676,7 +1681,7 @@ font-size: 13px;
 <section class="card hidden" id="s4Task4">
 <h2>📝 Завдання 4. Кримінальна відповідальність</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Питання:</strong> Чому під час війни поширення інформації про переміщення військ карається законом? <em>(обери всі правильні)</em>
+<strong>📌 Питання:</strong> Чому під час війни поширення інформації про переміщення військ карається законом?
 </div>
 <div class="task-options" id="s4Task4Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
@@ -1687,15 +1692,16 @@ font-size: 13px;
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">👥 Це ставить під загрозу життя військових і цивільних</div></div>
 </div>
-<div class="option" data-correct="true" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text"><div class="option-label">⚖️ Це є державною зрадою або сприянням ворогу</div></div>
-</div>
 <div class="option" data-correct="false" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text">
 <div class="option-label">📢 Щоб обмежити свободу слова</div>
 <div class="option-explanation">❌ Обмеження стосуються лише військових даних, а не свободи слова в цілому.</div>
+</div>
+</div>
+<div class="option" data-correct="true" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text"><div class="option-label">⚖️ Це є державною зрадою або сприянням ворогу</div></div>
 </div>
 </div>
 </div>
@@ -1795,7 +1801,7 @@ font-size: 13px;
 <section class="card hidden" id="s5Task2">
 <h2>📝 Завдання 2.</h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Питання:</strong> Що допомагає зберігати критичне мислення в умовах інформаційного тиску? <em>(обери всі правильні)</em>
+<strong>📌 Питання:</strong> Що допомагає зберігати критичне мислення в умовах інформаційного тиску?
 </div>
 <div class="task-options" id="s5Task2Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
@@ -1806,6 +1812,13 @@ font-size: 13px;
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">⏸️ Пауза перед тим, як поділитися</div></div>
 </div>
+<div class="option" data-correct="false" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text">
+<div class="option-label">😱 Довіра всім емоційним повідомленням</div>
+<div class="option-explanation">❌ Саме емоційні повідомлення часто є маніпуляцією.</div>
+</div>
+</div>
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">📚 Підписка лише на офіційні джерела</div></div>
@@ -1814,11 +1827,6 @@ font-size: 13px;
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">🧠 Аналіз емоцій, які викликає повідомлення</div></div>
 </div>
-<div class="option" data-correct="false" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text">
-<div class="option-label">😱 Довіра всім емоційним повідомленням</div>
-<div class="option-explanation">❌ Саме емоційні повідомлення часто є маніпуляцією.</div>
 </div>
 </div>
 </div>
@@ -1833,16 +1841,12 @@ font-size: 13px;
 <section class="card hidden" id="s5Task3">
 <h2>📝 Завдання 3. </h2>
 <div class="feedback feedback-warning mb-24">
-<strong>📌 Питання:</strong> Яку помилку в роботі з інформацією варто не повторювати? <em>(обери всі правильні)</em>
+<strong>📌 Питання:</strong> Яку помилку в роботі з інформацією варто не повторювати?
 </div>
 <div class="task-options" id="s5Task3Options">
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
 <div class="option-text"><div class="option-label">🚫 Поширювати неперевірену інформацію «про всяк випадок»</div></div>
-</div>
-<div class="option" data-correct="true" onclick="toggleOption(this)">
-<div class="option-checkbox"></div>
-<div class="option-text"><div class="option-label">📸 Публікувати фото/відео з місць подій до офіційних повідомлень</div></div>
 </div>
 <div class="option" data-correct="true" onclick="toggleOption(this)">
 <div class="option-checkbox"></div>
@@ -1853,6 +1857,11 @@ font-size: 13px;
 <div class="option-text">
 <div class="option-label">✅ Перевіряти інформацію перед поширенням</div>
 <div class="option-explanation">❌ Це правильна дія, а не помилка!</div>
+</div>
+</div>
+<div class="option" data-correct="true" onclick="toggleOption(this)">
+<div class="option-checkbox"></div>
+<div class="option-text"><div class="option-label">📸 Публікувати фото/відео з місць подій до офіційних повідомлень</div></div>
 </div>
 </div>
 </div>
